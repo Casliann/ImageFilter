@@ -1,0 +1,9 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/mnt/c/GitHub/ImageFilter'
+ 
+make: Warning: File 'src/utils.c' has modification time 0.36 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+gcc -Wall -Wextra --pedantic -fsanitize=address ./src/main.c ./src/utils.c ./src/filters.c -o stats
+make: Leaving directory '/mnt/c/GitHub/ImageFilter'
+ 
