@@ -1,21 +1,112 @@
-## Kompilierung
+# English 
 
-Alle benötigten Header-Dateien und Bibliotheken sind im Projekt enthalten.
+## Compilation
 
-Zur Kompilierung des Projekts kann das mitgelieferte Makefile verwendet werden. Dazu muss der folgende Befehl ausgeführt werden:
+To compile the project, you can use the provided Makefile. Run the following command:
+
 ```bash
 make
 ```
-Das Programm kann mit diesem Befehl gestartet werden: (Die genaue Ausführung ist unten beschrieben)
+
+### Running the Program
+
+After compiling, you can start the program with:
+
 ```bash
 ./imagefilter
 ```
+Options must be provided to run the program. The available options will be explained below.
 
-## Ausführung
+### Help
 
-Um die Anwendung zu starten, tippe `./imagefilter help` ein, um eine Hilfe-Nachricht zu erhalten. Diese enthält den richtigen Syntax und die verfügbaren Optionen.
+To get detailed usage instructions, run the following command:
+
+```bash
+./imagefilter help
+```
+
+This will display the correct syntax and available options.
+
+## Options
+
+The program supports the following options for customizing image filtering:
+
+- `if=<filename>` : Input image (e.g., `if=image.ppm`)
+- `of=<filename>` : Output image
+- `ff=<filename>` : Optional filter image for overlay effects
+- `color=<color>` : Optional, color of the filter (e.g., `red`, `green`, `blue`)
+- `filter=<option>` : Choose a filter:
+  - `overlay`: Overlay the filter image onto the input image
+  - `emboss`: Emboss effect
+  - `blur-median`: Median blur
+  - `blur-light`: Light blur
+  - `blur-medium`: Medium blur
+  - `blackframe`: Black frame
+  - `whiteframe`: White frame
+  - `snowflakes`: Snowflakes
+  - `hearts`: Hearts
+  - `stars`: Stars
+- `help`: Displays a help message
+
+## Example Usage
+
+```bash
+./imagefilter if=input.ppm of=newfile.ppm filter=hearts
+```
+
+This command applies the Hearts filter to the input image `input.ppm` and saves the result as `newfile.ppm`.
+
+
+
+```bash
+./imagefilter if=input.ppm ff=input2.ppm filter=overlay color=blue
+```
+
+This command applies the overlay filter to the image `input.ppm` by overlaying `input2.ppm` with a blue transparency color and saves the result. The result will automatically be saved in the file `new-input.ppm`.
+
+## Features
+
+- Supports PPM files in ASCII and binary formats.
+- The output is saved in a new file.
+- Filter templates for Stars, Snowflakes, Hearts, and Frames, as well as input images, are provided in the /assets directory.
+- Allows overlaying images with custom transparency colors.
+- The second image is scaled to match the first images size when overlaying.
+- Extended blur filters: blur-light and blur-medium.
+
+---
+
+# Deutsch
+
+## Kompilierung
+
+Zur Kompilierung des Projekts kann das mitgelieferte Makefile verwendet werden. Dazu muss der folgende Befehl ausgeführt werden:
+
+```bash
+make
+```
+
+### Ausführung des Programms
+
+Nach der Kompilierung kann das Programm mit folgendem Befehl gestartet werden:
+
+```bash
+./imagefilter
+```
+Es müssen Optionen angegeben werden, um das Programm zu verwenden. Die verfügbaren Optionen werden im Folgenden erklärt.
+
+### Hilfe
+
+Um detaillierte Anweisungen zur Verwendung zu erhalten, führe den folgenden Befehl aus:
+
+```bash
+./imagefilter help
+```
+
+Dieser Befehl zeigt die richtige Syntax und die verfügbaren Optionen an.
 
 ## Optionen
+
+Das Programm unterstützt die folgenden Optionen zur Anpassung der Bildfilterung:
 
 - `if=<filename>` : Eingabebild (z.B. `if=image.ppm`)
 - `of=<filename>` : Ausgabebild
@@ -39,22 +130,22 @@ Um die Anwendung zu starten, tippe `./imagefilter help` ein, um eine Hilfe-Nachr
 ```bash
 ./imagefilter if=input.ppm of=newfile.ppm filter=hearts
 ```
-Der Befehl wendet den Hearts-Filter auf das Eingabebild `input.ppm` an und speichert das Ergebnis unter dem Namen `newfile.ppm`.
+
+Dieser Befehl wendet den Hearts-Filter auf das Eingabebild `input.ppm` an und speichert das Ergebnis unter dem Namen `newfile.ppm`.
+
+
 
 ```bash
 ./imagefilter if=input.ppm ff=input2.ppm filter=overlay color=blue
 ```
-Der Befehl wendet den Overlay-Filter auf das Bild `input.ppm` an, indem er das Overlay-Bild `input2.ppm` mit einer blauen Transparenzfarbe überlagert und das Ergebnis speichert. Das Ergebnis wird automatisch im File `new-input.ppm` gespeichert.
 
-## Abgeschlossene Aufgaben
-- Alle Tasks (Task 1 - 5) außer Task 6 sind abgeschlossen.
-- Implementierung eines Filtersystems mit verschiedenen Filtern (Blur, Emboss, Rahmen)
+Dieser Befehl wendet den Overlay-Filter auf das Bild `input.ppm` an, indem es das Overlay-Bild `input2.ppm` mit einer blauen Transparenzfarbe überlagert und das Ergebnis speichert. Das Ergebnis wird automatisch im File `new-input.ppm` gespeichert.
+
+## Features
+
 - Unterstützung für PPM-Dateien im ASCII- und Binärformat.
 - Das Ergebnis wird in einer neuen Datei gespeichert.
-- In `/assets` sind Filtervorlagen für Stars, Snowflakes, Hearts und Frames zu finden, sowie Eingabebilder.
-- Unterstützung für Bildüberlagerungen mit benutzerdefinierter Transparenzfarbe und Farbauswahl für die Überlagerung
-- Bildskalierung: Das zweite Bild wird dem ersten skaliert.
-- Erweiterung des Blur-Filters: `blur-light`, `blur-medium`
-
-## Zusätzliche Features
-- Wenn kein Ausgabepfad angegeben wird, wird automatisch eine neue Datei mit dem Präfix `new-` erstellt (z.B. new-image.ppm).
+- In der /assets-Verzeichnis befinden sich Filtervorlagen für Stars, Snowflakes, Hearts und Frames sowie Eingabebilder.
+- Unterstützung für die Überlagerung von Bildern mit benutzerdefinierter Transparenzfarbe.
+- Das zweite Bild wird dem ersten skaliert.
+- Erweiterte Blur-Filter: blur-light und blur-medium.
